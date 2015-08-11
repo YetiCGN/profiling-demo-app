@@ -23,7 +23,7 @@ class GenerateTestDataCommand extends ContainerAwareCommand
         $entityManager = $this->getContainer()->get('doctrine')->getManager();
 
         $faker = \Faker\Factory::create();
-        $people = [];
+        $people = array();
         for ($i = 0; $i < 50; $i++) {
             $person = new \AppBundle\Entity\Person();
             $person->setFirstName($faker->firstName);

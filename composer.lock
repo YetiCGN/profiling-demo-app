@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cdc55f6a61e088e20333d99b671579c7",
+    "hash": "cc47a8d9a754646daaf99b13d25b2cd5",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1560,6 +1560,40 @@
             "time": "2015-07-31 13:24:45"
         },
         {
+            "name": "tideways/profiler",
+            "version": "2.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tideways/profiler.git",
+                "reference": "5b890d6b0197003997d110bf2420c33d824962ed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tideways/profiler/zipball/5b890d6b0197003997d110bf2420c33d824962ed",
+                "reference": "5b890d6b0197003997d110bf2420c33d824962ed",
+                "shasum": ""
+            },
+            "conflict": {
+                "qafoolabs/profiler": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Tideways\\": "src/main",
+                    "QafooLabs\\Profiler": "src/main"
+                },
+                "files": [
+                    "src/scripts/auto_start.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Client library that wraps Xhprof profile collection and sends to Tideways",
+            "time": "2015-06-15 00:48:54"
+        },
+        {
             "name": "twig/twig",
             "version": "v1.18.2",
             "source": {
@@ -1669,7 +1703,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "tideways/profiler": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
