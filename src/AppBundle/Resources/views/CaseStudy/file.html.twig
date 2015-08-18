@@ -1,0 +1,22 @@
+{% extends "AppBundle::base.html.twig" %}
+
+{% block title %}Case Study: Singleton - to be, or not to be{% endblock %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            <div id="welcome">
+                <h1>Profiling PHP - Demo App</h1>
+                <h2>Case Study: Singleton - to be, or not to be</h2>
+                <ul>
+                    {% for singleton in container %}
+                        <li>{{ singleton.identifier }},<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;number of array elements: {{ singleton.container | length }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div><a href="{{ path('case-study-overview') }}">Back to overview</a></div>
+        </div>
+    </div>
+{% endblock %}
