@@ -53,4 +53,27 @@ class CaseStudyController extends Controller
 
         return array('container' => $container);
     }
+
+    /**
+     * Simulates the use of a singleton pattern, which loads a file from file system.
+     *
+     * @Route("/case-study/file", name="case-study-file")
+     * @Template()
+     */
+    public function fileAction()
+    {
+        $numberOfUses = 50;
+        $container = array();
+
+        for ($i = 1; $i <= $numberOfUses; $i++)
+        {
+            $singleton = Singleton::getInstanceUnbroken();
+            $singleton->identifier = 'Hello world, I am Singleton #' . $i . '!';
+            $singleton->loadFile();
+            $container[] = $singleton;
+        }
+
+        return array('container' => $container);
+    }
+
 }
