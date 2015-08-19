@@ -12,7 +12,7 @@ class CaseStudyController extends Controller
     /**
      * Starting website with overview of case studies
      *
-     * @Route("/case-study", name="case-study-overview")
+     * @Route("", name="case-study-overview")
      * @Template()
      */
     public function indexAction()
@@ -23,7 +23,7 @@ class CaseStudyController extends Controller
     /**
      * Simulates database access
      *
-     * @Route("/case-study/calendar", name="case-study-calendar")
+     * @Route("/calendar", name="case-study-calendar")
      * @Template()
      */
     public function calendarAction()
@@ -35,7 +35,7 @@ class CaseStudyController extends Controller
     /**
      * Simulates the use of a singleton pattern.
      *
-     * @Route("/case-study/singleton", name="case-study-singleton")
+     * @Route("/singleton", name="case-study-singleton")
      * @Template()
      */
     public function singletonAction()
@@ -57,7 +57,7 @@ class CaseStudyController extends Controller
     /**
      * Simulates the use of a singleton pattern, which loads a file from file system.
      *
-     * @Route("/case-study/file", name="case-study-file")
+     * @Route("/file", name="case-study-file")
      * @Template()
      */
     public function fileAction()
