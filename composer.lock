@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f2ba875c761f0166e76e8148b7ab0204",
+    "hash": "b322a8dd19756d14e744524b4927778a",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1560,16 +1560,16 @@
         },
         {
             "name": "tideways/profiler",
-            "version": "2.0.x-dev",
+            "version": "v2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tideways/profiler.git",
-                "reference": "5b890d6b0197003997d110bf2420c33d824962ed"
+                "reference": "0c72ca48a36b4704c067588e815cc5a9722e7219"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tideways/profiler/zipball/5b890d6b0197003997d110bf2420c33d824962ed",
-                "reference": "5b890d6b0197003997d110bf2420c33d824962ed",
+                "url": "https://api.github.com/repos/tideways/profiler/zipball/0c72ca48a36b4704c067588e815cc5a9722e7219",
+                "reference": "0c72ca48a36b4704c067588e815cc5a9722e7219",
                 "shasum": ""
             },
             "conflict": {
@@ -1590,7 +1590,7 @@
                 "MIT"
             ],
             "description": "Client library that wraps Xhprof profile collection and sends to Tideways",
-            "time": "2015-06-15 00:48:54"
+            "time": "2015-07-16 07:25:46"
         },
         {
             "name": "twig/twig",
@@ -1702,9 +1702,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "tideways/profiler": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
