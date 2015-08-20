@@ -50,6 +50,26 @@ class Singleton
     }
 
     /**
+     * @param $gender
+     * @return string
+     */
+    public function getSalutation($gender)
+    {
+        $salutation = '';
+
+        switch ($gender) {
+            case 'm':
+                $salutation = 'Mr.';
+                break;
+            case 'f':
+                $salutation = 'Ms.';
+                break;
+        }
+
+        return $salutation;
+    }
+
+    /**
      *
      */
     public function loadFile()

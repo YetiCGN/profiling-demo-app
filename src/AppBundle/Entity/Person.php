@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Entity;
 
+use AppBundle\Library\Singleton;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,6 +25,11 @@ class Person
      * @ORM\Column(type="string", length=255, nullable=false)
      */
     private $lastName;
+
+    /**
+     * @ORM\Column(type="string", length=1, nullable=false)
+     */
+    private $gender;
 
     /**
      * @ORM\Column(type="date", nullable=true)
@@ -100,6 +106,27 @@ class Person
     }
 
     /**
+     * Get gender
+     *
+     * @return string
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
+    /**
+     * @param string $gender
+     * @return Person
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+
+        return $this;
+    }
+
+    /**
      * Set birthday
      *
      * @param \DateTime $birthday
@@ -153,5 +180,14 @@ class Person
     public function getCalendars()
     {
         return $this->calendars;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSalutation()
+    {
+        $singleton = Singleton::getInstance();
+        return $singleton->getSalutation($this->gender);
     }
 }

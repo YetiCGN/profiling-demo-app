@@ -26,12 +26,13 @@ class GenerateTestDataCommand extends ContainerAwareCommand
         $people = array();
         for ($i = 0; $i < 50; $i++) {
             $person = new \AppBundle\Entity\Person();
-            $person->setFirstName($faker->firstName);
+            $gender = (rand(0, 1) == 0) ? 'male' : 'female';
+            $person->setFirstName($faker->format("firstName", array($gender)));
             $person->setLastName($faker->lastName);
+            $person->setGender($gender{0});
             $person->setBirthday($faker->dateTimeBetween('-60 years', '-18 years'));
             $entityManager->persist($person);
             $people[] = $person;
-
             $output->write('.');
         }
         $output->writeln('');

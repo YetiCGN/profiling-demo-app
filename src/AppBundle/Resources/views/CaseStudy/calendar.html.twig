@@ -10,7 +10,7 @@
                 <h2>Case Study: Calendar - SQLite data</h2>
                 {% for person in people %}
                 <p>
-                    {{ person.firstName }} {{ person.lastName }} has {{ person.calendars | length }} calendars:
+                    {{ person.getSalutation }} {{ person.firstName }} {{ person.lastName }} has {{ person.calendars | length }} calendars:
                     {% for index, calendar in person.calendars %}
                         <div>
                             Calendar {{ index }} has {{ calendar.entries | length }} entries:<br>
