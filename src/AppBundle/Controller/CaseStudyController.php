@@ -6,6 +6,7 @@ use AppBundle\Library\Singleton;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Config\Definition\Exception\Exception;
 
 class CaseStudyController extends Controller
 {
@@ -74,6 +75,50 @@ class CaseStudyController extends Controller
         }
 
         return array('container' => $container);
+    }
+
+    /**
+     *
+     * @Route("/error", name="case-study-error")
+     * @Template()
+     */
+    public function errorAction()
+    {
+        trigger_error ("Error", E_USER_ERROR);
+        return array();
+    }
+
+    /**
+     *
+     * @Route("/exception", name="case-study-exception")
+     * @Template()
+     */
+    public function exceptionAction()
+    {
+        throw new Exception("Critical Exception");
+        return array();
+    }
+
+    /**
+     *
+     * @Route("/warning", name="case-study-warning")
+     * @Template()
+     */
+    public function warningAction()
+    {
+        trigger_error ("Warning", E_USER_WARNING);
+        return array();
+    }
+
+    /**
+     *
+     * @Route("/notice", name="case-study-notice")
+     * @Template()
+     */
+    public function noticeAction()
+    {
+        trigger_error ("Notice", E_USER_NOTICE);
+        return array();
     }
 
 }
