@@ -10,6 +10,8 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 
 class CaseStudyController extends Controller
 {
+    private static $SINGLETON_TEXT = 'Hello world, I am instance number %d';
+
     /**
      * Starting website with overview of case studies
      *
@@ -33,44 +35,23 @@ class CaseStudyController extends Controller
         return array('people' => $people);
     }
 
-    /**
-     * Simulates the use of a singleton pattern.
-     *
-     * @Route("/singleton", name="case-study-singleton")
-     * @Template()
-     */
-    public function singletonAction()
-    {
-        $numberOfUses = 1000;
-        $container = array();
-
-        for ($i = 1; $i <= $numberOfUses; $i++)
-        {
-            $singleton = Singleton::getInstance();
-            $singleton->identifier = 'Hello world, I am Singleton #' . $i . '!';
-
-            $container[] = $singleton;
-        }
-
-        return array('container' => $container);
-    }
 
     /**
-     * Simulates the use of a singleton pattern, which loads a file from file system.
+     * Simulates the use of the singleton pattern, which loads a file from file system.
      *
-     * @Route("/file", name="case-study-file")
-     * @Template()
+     * @Route("/static-file", name="case-study-static-file")
+     * @Template("AppBundle:CaseStudy:static-file.html.twig")
      */
-    public function fileAction()
+    public function staticFileAction()
     {
         $numberOfUses = 50;
         $container = array();
 
         for ($i = 1; $i <= $numberOfUses; $i++)
         {
-            $singleton = Singleton::getInstanceUnbroken();
-            $singleton->identifier = 'Hello world, I am Singleton #' . $i . '!';
-            $singleton->loadFile();
+            $singleton = Singleton::getInstance();
+            $singleton->identifier = sprintf(self::$SINGLETON_TEXT, $i);
+            $singleton->getFile();
             $container[] = $singleton;
         }
 

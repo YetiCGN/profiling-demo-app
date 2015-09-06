@@ -1,7 +1,7 @@
 <style>
     body {
         background: #F5F5F5;
-        font: 16px/1.5 sans-serif;
+        font: 14px/1.5 sans-serif;
     }
 
     h1, h2 {
@@ -40,7 +40,7 @@
     #wrapper {
         background: #FFF;
         margin: 1em auto;
-        max-width: 800px;
+        max-width: 1200px;
         width: 95%;
     }
 
@@ -48,7 +48,7 @@
         padding: 2em;
     }
 
-    #welcome, #status {
+    #welcome {
         margin-bottom: 2em;
     }
 
@@ -57,52 +57,20 @@
         font-size: 75%;
     }
 
-    #icon-status, #icon-book {
-        float: left;
-        height: 64px;
-        margin-right: 1em;
-        margin-top: -4px;
-        width: 64px;
+    .calendar {
+        padding-left: 2em;
     }
 
-    #icon-book {
-        display: none;
+    .calendar-entry {
+        padding-left: 2em;
     }
 
     @media (min-width: 768px) {
+
         #wrapper {
-            width: 80%;
+            width: 100%;
             margin: 2em auto;
         }
 
-        #icon-book {
-            display: inline-block;
-        }
-
-        #status a, #next a {
-            display: block;
-        }
-
-        @-webkit-keyframes fade-in {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-        @keyframes fade-in {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-        .sf-toolbar {
-            opacity: 0;
-            -webkit-animation: fade-in 1s .2s forwards;
-            animation: fade-in 1s .2s forwards;
-        }
     }
 </style>

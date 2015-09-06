@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -31,7 +32,7 @@ class Calendar
      */
     public function __construct()
     {
-        $this->entries = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->entries = new ArrayCollection();
     }
 
     /**

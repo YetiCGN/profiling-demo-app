@@ -2,6 +2,7 @@
 namespace AppBundle\Entity;
 
 use AppBundle\Library\Singleton;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,7 +47,7 @@ class Person
      */
     public function __construct()
     {
-        $this->calendars = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->calendars = new ArrayCollection();
     }
 
     /**

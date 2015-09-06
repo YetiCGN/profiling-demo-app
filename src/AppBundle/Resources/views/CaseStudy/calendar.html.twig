@@ -10,11 +10,10 @@
                 <h2>Case Study: Calendar - SQLite data</h2>
                 {% for person in people %}
                 <p>
-                    {{ person.getSalutation }} {{ person.firstName }} {{ person.lastName }} has {{ person.calendars | length }} calendars:
+                    <h3>{{ person.getSalutation }} {{ person.firstName }} {{ person.lastName }} has {{ person.calendars | length }} calendars</h3>
                     {% for index, calendar in person.calendars %}
-                        <div>
-                            Calendar {{ index }} has {{ calendar.entries | length }} entries:<br>
-
+                        <div class="calendar">
+                            <h4>Calendar {{ index }} has {{ calendar.entries | length }} entries:</h4>
                             {% for entry in calendar.entries %}
                                 {% include 'AppBundle:CaseStudy:calendar-entry.html.twig' with {'entry': entry} %}
                             {% endfor %}

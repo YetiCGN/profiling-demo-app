@@ -39,17 +39,6 @@ class Singleton
     }
 
     /**
-     * @return Singleton
-     */
-    static public function getInstanceUnbroken()
-    {
-        if (null === self::$instance)
-            self::$instance = new self;
-
-        return self::$instance;
-    }
-
-    /**
      * @param $gender
      * @return string
      */
@@ -72,13 +61,13 @@ class Singleton
     /**
      *
      */
-    public function loadFile()
+    public function getFile()
     {
         $pathToFile = __DIR__ . str_replace('/', DIRECTORY_SEPARATOR, '/../Resources/data/dummy.txt');
-        if (file_exists($pathToFile))
-            $this->container[] = file_get_contents($pathToFile);
-        else
+        if (!file_exists($pathToFile))
             throw new FileNotFoundException($pathToFile);
+
+        return file_get_contents($pathToFile);
     }
 
     /**
