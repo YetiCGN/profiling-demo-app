@@ -1,0 +1,31 @@
+{% extends "AppBundle::base.html.twig" %}
+
+{% block title %}Case Study: Calendar - SQLite data{% endblock %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            <div id="welcome">
+                <h1>Profiling PHP - Demo App</h1>
+                <h2>Case Study: Calendar - SQLite data</h2>
+                {% for person in people %}
+                <p>
+                    <h3>{{ person.getSalutation }} {{ person.firstName }} {{ person.lastName }} has {{ person.calendars | length }} calendars</h3>
+                    {% for index, calendar in person.calendars %}
+                        <div class="calendar">
+                            <h4>Calendar {{ index }} has {{ calendar.entries | length }} entries:</h4>
+                            {% for entry in calendar.entries %}
+                                <div class="calendar-entry">
+                                    <b>On {{ entry.when.format('Y-m-d') }} at {{ entry.when.format('H:i') }}:</b>
+                                    <p>{{ entry.what }}</p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </p>
+                {% endfor %}
+            </div>
+            <div><a href="{{ path('case-study-overview') }}">Back to overview</a></div>
+        </div>
+    </div>
+{% endblock %}

@@ -31,10 +31,12 @@ class CaseStudyController extends Controller
      */
     public function calendarAction()
     {
-        $people = $this->getDoctrine()->getRepository('AppBundle:Person')->findAll();
+        /** @var \AppBundle\Repository\PersonRepository $repository */
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Person');
+        $people = $repository->findAll();
+
         return array('people' => $people);
     }
-
 
     /**
      * Simulates the use of the singleton pattern, which loads a file from file system.
@@ -56,5 +58,21 @@ class CaseStudyController extends Controller
         }
 
         return array('container' => $container);
+    }
+
+    /**
+     * Simulates database access
+     * Revised: Join fetch and twig includes
+     *
+     * @Route("/calendar-revised", name="case-study-calendar-revised")
+     * @Template("AppBundle:CaseStudy:calendar.revised.html.twig")
+     */
+    public function calendarRevisedAction()
+    {
+        /** @var \AppBundle\Repository\PersonRepository $repository */
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Person');
+        $people = $repository->getPersonsWithCalendarEntries();
+
+        return array('people' => $people);
     }
 }
